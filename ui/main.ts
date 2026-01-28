@@ -32,6 +32,7 @@ const playBtn = document.getElementById("playBtn") as HTMLButtonElement;
 const pauseBtn = document.getElementById("pauseBtn") as HTMLButtonElement;
 const slider = document.getElementById("windowSlider") as HTMLInputElement;
 const yScaleSel = document.getElementById("yScale") as HTMLSelectElement;
+const excelPathRow = document.getElementById("excelPathRow") as HTMLDivElement | null;
 const excelPathInput = document.getElementById("excelPath") as HTMLInputElement;
 const loadBtn = document.getElementById("loadBtn") as HTMLButtonElement;
 
@@ -57,6 +58,7 @@ const WINDOW = 12;
 let mode: "mcp" | "web" = "web";
 let appRef: App | null = null;
 let selectedCategory: string | null = null;
+let lastLoadSource: "mcp" | "local-api" | "static" = "static";
 
 const COLOR_STORAGE_KEY = "mcp-quarter-chart.colorsByCategory.v1";
 const ORDER_STORAGE_KEY = "mcp-quarter-chart.categoryOrder.v1";
@@ -185,6 +187,16 @@ function formatByScale(n: number) {
 
 function showStatus(msg: string) {
   statusEl.textContent = msg;
+}
+
+function isLocalhost() {
+  const h = window.location.hostname;
+  return h === "localhost" || h === "127.0.0.1";
+}
+
+function setExcelPathRowVisible(visible: boolean) {
+  if (!excelPathRow) return;
+  excelPathRow.style.display = visible ? "flex" : "none";
 }
 
 function setTooltip(show: boolean, x = 0, y = 0, html = "") {
@@ -546,7 +558,11 @@ function normalizeAndRender(result: ToolResult) {
   slider.max = String(maxStart);
   slider.value = "0";
 
-  showStatus(`Loaded ${result.series.length} quarters from ${result.excelPath}`);
+  if (lastLoadSource === "static") {
+    showStatus(`Loaded published dataset (${result.series.length} quarters).`);
+  } else {
+    showStatus(`Loaded ${result.series.length} quarters from ${result.excelPath}`);
+  }
   render();
 }
 
@@ -554,27 +570,8 @@ function parseToolTextResult(text: string): ToolResult {
   return JSON.parse(text) as ToolResult;
 }
 
-function getExcelPathFromUrl(): string | null {
-  try {
-    const u = new URL(window.location.href);
-    return u.searchParams.get("excelPath");
-  } catch {
-    return null;
-  }
-}
-
-function setExcelPathInUrl(excelPath: string) {
-  try {
-    const u = new URL(window.location.href);
-    u.searchParams.set("excelPath", excelPath);
-    history.replaceState(null, "", u.toString());
-  } catch {
-    // ignore
-  }
-}
-
 async function loadFromLocalApi() {
-  const excelPath = (excelPathInput.value || getExcelPathFromUrl() || "L:/System/Downloads/data.xlsx").trim();
+  const excelPath = (excelPathInput.value || "L:/System/Downloads/data.xlsx").trim();
 
   // 1) Try local preview server API (works in VS Code Simple Browser)
   try {
@@ -584,6 +581,7 @@ async function loadFromLocalApi() {
     const res = await fetch(apiUrl.toString(), { method: "GET" });
     if (!res.ok) throw new Error(`Local API error: ${res.status} ${res.statusText}`);
     const data = (await res.json()) as ToolResult;
+    lastLoadSource = "local-api";
     normalizeAndRender(data);
     return;
   } catch {
@@ -596,13 +594,13 @@ async function loadFromLocalApi() {
   const res2 = await fetch(staticUrl.toString(), { method: "GET" });
   if (!res2.ok) throw new Error(`Static data.json error: ${res2.status} ${res2.statusText}`);
   const data2 = (await res2.json()) as ToolResult;
+  lastLoadSource = "static";
   normalizeAndRender(data2);
 }
 
 async function loadData() {
   const excelPath = (excelPathInput.value || "L:/System/Downloads/data.xlsx").trim();
   if (!excelPath) return;
-  setExcelPathInUrl(excelPath);
 
   stopPlaying();
   setTooltip(false);
@@ -615,6 +613,7 @@ async function loadData() {
   // MCP mode
   if (!appRef) return;
   showStatus("Loading…");
+  lastLoadSource = "mcp";
   const result = await appRef.callServerTool({
     name: "quarter_data",
     arguments: { excelPath },
@@ -627,6 +626,9 @@ async function loadData() {
 async function init() {
   await loadPublishedDefaults();
 
+  // Hide Excel-path UI by default; only show it on localhost preview.
+  setExcelPathRowVisible(false);
+
   playBtn.addEventListener("click", () => startPlaying());
   pauseBtn.addEventListener("click", () => stopPlaying());
   slider.addEventListener("input", () => {
@@ -638,10 +640,7 @@ async function init() {
     render();
   });
 
-  // Initialize Excel path from URL if present
-  const urlExcelPath = getExcelPathFromUrl();
-  if (urlExcelPath) excelPathInput.value = urlExcelPath;
-  else excelPathInput.value = "L:/System/Downloads/data.xlsx";
+  excelPathInput.value = "L:/System/Downloads/data.xlsx";
 
   loadBtn.addEventListener("click", () => {
     loadData().catch((e: any) => showStatus(`Load failed: ${e?.message ?? String(e)}`));
@@ -747,10 +746,12 @@ async function init() {
   try {
     await app.connect();
     mode = "mcp";
+    setExcelPathRowVisible(false);
 
     // Fallback trigger: some hosts won't auto-run tools until requested.
     try {
-      const excelPath = (excelPathInput.value || getExcelPathFromUrl() || "L:/System/Downloads/data.xlsx").trim();
+      const excelPath = (excelPathInput.value || "L:/System/Downloads/data.xlsx").trim();
+      lastLoadSource = "mcp";
       const result = await app.callServerTool({
         name: "quarter_data",
         arguments: { excelPath },
@@ -763,6 +764,7 @@ async function init() {
     }
   } catch {
     mode = "web";
+    setExcelPathRowVisible(isLocalhost());
     await loadFromLocalApi();
   }
 }

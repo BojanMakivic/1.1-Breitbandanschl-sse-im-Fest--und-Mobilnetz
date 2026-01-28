@@ -96,6 +96,11 @@
         height: 12px;
         border-radius: 3px;
       }
+
+      /* Only shown when running on localhost preview. */
+      #excelPathRow {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -114,7 +119,7 @@
           <div class="meta" id="windowLabel"></div>
         </div>
 
-        <div class="row" style="margin-top: 10px;">
+        <div class="row" id="excelPathRow" style="margin-top: 10px;">
           <div class="meta">Excel path</div>
           <input id="excelPath" type="text" placeholder="L:/System/Downloads/data.xlsx" style="min-width: min(680px, 72vw); flex: 1 1 auto; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: inherit;" />
           <button id="loadBtn">Load</button>
