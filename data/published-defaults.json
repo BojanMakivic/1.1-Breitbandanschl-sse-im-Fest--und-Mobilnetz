@@ -1,0 +1,20 @@
+{
+  "colorsByCategory": {
+    "Smartphonetarife ohne Flatrate": "#296997",
+    "Datentarife mit Flatrate": "#243D49",
+    "Festes Breitband": "#90ACBC",
+    "Mobile Datentarife": "#B4DCE7",
+    "Smartphonetarife": "#8C5E75",
+    "Datentarife ohne Flatrate": "#CFDDA0",
+    "Smartphonetarife mit Flatrate": "#76BBA3"
+  },
+  "categoryOrder": [
+    "Festes Breitband",
+    "Mobile Datentarife",
+    "Smartphonetarife",
+    "Datentarife mit Flatrate",
+    "Datentarife ohne Flatrate",
+    "Smartphonetarife mit Flatrate",
+    "Smartphonetarife ohne Flatrate"
+  ]
+}
