@@ -1,0 +1,27 @@
+{
+  "name": "mcp-quarter-chart",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:ui",
+    "build:ui": "vite build",
+    "build:pages": "npm run build:ui && tsx src/build-pages.ts",
+    "serve": "tsx src/server.ts",
+    "start": "npm run build:ui && tsx src/server.ts",
+    "serve:web": "tsx src/web-preview.ts",
+    "start:web": "npm run build:ui && tsx src/web-preview.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "latest",
+    "@modelcontextprotocol/sdk": "latest",
+    "zod": "latest",
+    "xlsx": "latest"
+  },
+  "devDependencies": {
+    "tsx": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vite-plugin-singlefile": "latest"
+  }
+}

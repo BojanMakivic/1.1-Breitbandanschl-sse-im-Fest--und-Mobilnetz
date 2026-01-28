@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quarterly Connections</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+        background: var(--color-background-primary, #0b1220);
+        color: var(--color-text-primary, #e5e7eb);
+      }
+      .wrap {
+        padding: 16px;
+        box-sizing: border-box;
+      }
+      .card {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 16px;
+        border-radius: 14px;
+        background: var(--color-background-secondary, rgba(255,255,255,0.05));
+        border: 1px solid var(--color-border-primary, rgba(255,255,255,0.12));
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .row > * { flex: 0 0 auto; }
+      .spacer { flex: 1 1 auto; }
+
+      button {
+        border: 1px solid var(--color-border-primary, rgba(255,255,255,0.18));
+        background: rgba(255,255,255,0.06);
+        color: inherit;
+        padding: 8px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+      input[type="range"] {
+        width: min(640px, 70vw);
+      }
+
+      .meta {
+        font-size: 12px;
+        opacity: 0.85;
+      }
+
+      .chart {
+        margin-top: 12px;
+        height: 520px;
+        position: relative;
+      }
+      svg { width: 100%; height: 100%; display: block; }
+
+      .tooltip {
+        position: absolute;
+        pointer-events: none;
+        background: rgba(0,0,0,0.85);
+        color: white;
+        padding: 8px 10px;
+        border-radius: 10px;
+        font-size: 12px;
+        border: 1px solid rgba(255,255,255,0.12);
+        max-width: 340px;
+        display: none;
+        z-index: 5;
+      }
+
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .legendItem {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.05);
+        user-select: none;
+      }
+      .swatch {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="row">
+          <button id="playBtn">Play</button>
+          <button id="pauseBtn" disabled>Pause</button>
+          <label class="meta" style="margin-left: 10px;">Y scale</label>
+          <select id="yScale" style="padding: 7px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: inherit;">
+            <option value="abs" selected>Absolute</option>
+            <option value="k">Thousands</option>
+            <option value="m">Millions</option>
+          </select>
+          <div class="spacer"></div>
+          <div class="meta" id="windowLabel"></div>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+          <div class="meta">Excel path</div>
+          <input id="excelPath" type="text" placeholder="L:/System/Downloads/data.xlsx" style="min-width: min(680px, 72vw); flex: 1 1 auto; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: inherit;" />
+          <button id="loadBtn">Load</button>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+          <div class="meta">Window start</div>
+          <input id="windowSlider" type="range" min="0" max="0" step="1" value="0" />
+        </div>
+
+        <div class="chart" id="chartWrap">
+          <div class="tooltip" id="tooltip"></div>
+          <svg id="chart"></svg>
+        </div>
+
+        <div class="legend" id="legend"></div>
+
+        <div class="row" id="legendEditor" style="margin-top: 10px; display:none;">
+          <div class="meta" id="legendEditorLabel"></div>
+          <input id="colorPicker" type="color" />
+          <input id="colorHex" type="text" placeholder="#RRGGBB" style="width: 110px; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: inherit;" />
+          <button id="applyColorBtn">Apply</button>
+          <button id="downloadDefaultsBtn">Download defaults</button>
+          <button id="resetColorsBtn">Reset colors</button>
+          <button id="resetOrderBtn">Reset order</button>
+          <div class="spacer"></div>
+          <div class="meta">Tip: click to edit color, drag to reorder stack. “Download defaults” lets you commit them for GitHub Pages.</div>
+        </div>
+
+        <div class="meta" id="status" style="margin-top:10px;"></div>
+      </div>
+    </div>
+
+    <!-- D3 via CDN (keeps bundle small). -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

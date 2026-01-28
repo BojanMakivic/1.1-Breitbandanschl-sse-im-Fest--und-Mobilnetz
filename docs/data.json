@@ -1,0 +1,302 @@
+{
+  "excelPath": "L:\\System\\mcp-quarter-chart\\data\\data.xlsx",
+  "quarters": [
+    "2020-Q1",
+    "2020-Q2",
+    "2020-Q3",
+    "2020-Q4",
+    "2021-Q1",
+    "2021-Q2",
+    "2021-Q3",
+    "2021-Q4",
+    "2022-Q1",
+    "2022-Q2",
+    "2022-Q3",
+    "2022-Q4",
+    "2023-Q1",
+    "2023-Q2",
+    "2023-Q3",
+    "2023-Q4",
+    "2024-Q1",
+    "2024-Q2",
+    "2024-Q3",
+    "2024-Q4",
+    "2025-Q1",
+    "2025-Q2"
+  ],
+  "categories": [
+    "Datentarife mit Flatrate",
+    "Datentarife ohne Flatrate",
+    "Festes Breitband",
+    "Mobile Datentarife",
+    "Smartphonetarife",
+    "Smartphonetarife mit Flatrate",
+    "Smartphonetarife ohne Flatrate"
+  ],
+  "series": [
+    {
+      "quarter": "2020-Q1",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2540183,
+        "Mobile Datentarife": 1885263.115588666,
+        "Smartphonetarife": 7709052.024178797,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2020-Q2",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2534348,
+        "Mobile Datentarife": 1911702.115588666,
+        "Smartphonetarife": 7710854.024178797,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2020-Q3",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2570746,
+        "Mobile Datentarife": 1921780,
+        "Smartphonetarife": 7831330,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2020-Q4",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2554711,
+        "Mobile Datentarife": 1960203,
+        "Smartphonetarife": 7952238,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2021-Q1",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2563174,
+        "Mobile Datentarife": 1978034,
+        "Smartphonetarife": 8141032,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2021-Q2",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2572511,
+        "Mobile Datentarife": 1945158,
+        "Smartphonetarife": 8089664,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2021-Q3",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2597247,
+        "Mobile Datentarife": 1949614,
+        "Smartphonetarife": 8243991,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2021-Q4",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2623354,
+        "Mobile Datentarife": 1975616,
+        "Smartphonetarife": 8365853,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2022-Q1",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2649816,
+        "Mobile Datentarife": 1980942,
+        "Smartphonetarife": 8351938,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2022-Q2",
+      "values": {
+        "Datentarife mit Flatrate": 0,
+        "Datentarife ohne Flatrate": 0,
+        "Festes Breitband": 2617966,
+        "Mobile Datentarife": 1986673,
+        "Smartphonetarife": 8355735,
+        "Smartphonetarife mit Flatrate": 0,
+        "Smartphonetarife ohne Flatrate": 0
+      }
+    },
+    {
+      "quarter": "2022-Q3",
+      "values": {
+        "Datentarife mit Flatrate": 1494295.123648265,
+        "Datentarife ohne Flatrate": 743644,
+        "Festes Breitband": 2630368,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 513962.0241787969,
+        "Smartphonetarife ohne Flatrate": 8304975
+      }
+    },
+    {
+      "quarter": "2022-Q4",
+      "values": {
+        "Datentarife mit Flatrate": 1510532.123648265,
+        "Datentarife ohne Flatrate": 743629,
+        "Festes Breitband": 2653098,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 562691.0241787969,
+        "Smartphonetarife ohne Flatrate": 8309462
+      }
+    },
+    {
+      "quarter": "2023-Q1",
+      "values": {
+        "Datentarife mit Flatrate": 1511494.123648265,
+        "Datentarife ohne Flatrate": 747716,
+        "Festes Breitband": 2616078,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 634829.0241787969,
+        "Smartphonetarife ohne Flatrate": 8313128
+      }
+    },
+    {
+      "quarter": "2023-Q2",
+      "values": {
+        "Datentarife mit Flatrate": 1512695.123648265,
+        "Datentarife ohne Flatrate": 748164,
+        "Festes Breitband": 2663003,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 739152.0241787969,
+        "Smartphonetarife ohne Flatrate": 8269099
+      }
+    },
+    {
+      "quarter": "2023-Q3",
+      "values": {
+        "Datentarife mit Flatrate": 1522107.2530672648,
+        "Datentarife ohne Flatrate": 755282,
+        "Festes Breitband": 2672907,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 842750.0241787969,
+        "Smartphonetarife ohne Flatrate": 8221722.870581
+      }
+    },
+    {
+      "quarter": "2023-Q4",
+      "values": {
+        "Datentarife mit Flatrate": 1526615.123648265,
+        "Datentarife ohne Flatrate": 746031,
+        "Festes Breitband": 2684031,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 979697.0241787969,
+        "Smartphonetarife ohne Flatrate": 8123894
+      }
+    },
+    {
+      "quarter": "2024-Q1",
+      "values": {
+        "Datentarife mit Flatrate": 1541509.123648265,
+        "Datentarife ohne Flatrate": 1116484,
+        "Festes Breitband": 2755099,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 990032.0241787969,
+        "Smartphonetarife ohne Flatrate": 8189201
+      }
+    },
+    {
+      "quarter": "2024-Q2",
+      "values": {
+        "Datentarife mit Flatrate": 1529416.123648265,
+        "Datentarife ohne Flatrate": 1109650,
+        "Festes Breitband": 2753165,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 1048304.0241787969,
+        "Smartphonetarife ohne Flatrate": 8203578
+      }
+    },
+    {
+      "quarter": "2024-Q3",
+      "values": {
+        "Datentarife mit Flatrate": 1534753.123648265,
+        "Datentarife ohne Flatrate": 1120319,
+        "Festes Breitband": 2755535,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 1127752.024178797,
+        "Smartphonetarife ohne Flatrate": 8190498
+      }
+    },
+    {
+      "quarter": "2024-Q4",
+      "values": {
+        "Datentarife mit Flatrate": 1542760.123648265,
+        "Datentarife ohne Flatrate": 1121685,
+        "Festes Breitband": 2764120,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 1233045.024178797,
+        "Smartphonetarife ohne Flatrate": 8149551
+      }
+    },
+    {
+      "quarter": "2025-Q1",
+      "values": {
+        "Datentarife mit Flatrate": 1542088.123648265,
+        "Datentarife ohne Flatrate": 1102419,
+        "Festes Breitband": 2765918,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 1272898.024178797,
+        "Smartphonetarife ohne Flatrate": 8144041
+      }
+    },
+    {
+      "quarter": "2025-Q2",
+      "values": {
+        "Datentarife mit Flatrate": 1542962.123648265,
+        "Datentarife ohne Flatrate": 1093651,
+        "Festes Breitband": 2766096,
+        "Mobile Datentarife": 0,
+        "Smartphonetarife": 0,
+        "Smartphonetarife mit Flatrate": 1333140.024178797,
+        "Smartphonetarife ohne Flatrate": 8143697
+      }
+    }
+  ]
+}
